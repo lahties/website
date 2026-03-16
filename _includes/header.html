@@ -1,14 +1,14 @@
 <nav class="navbar">
     <div class="container nav-container">
         <a href="{{ '/' | relative_url }}" class="logo">
-            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="logo-img">
+            <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="{{ '/events' | relative_url }}" {% if page.url == '/events/' %}style="color: var(--text-primary);"{% endif %}>Events</a></li>
-            <li><a href="{{ '/projects' | relative_url }}" {% if page.url == '/projects/' %}style="color: var(--text-primary);"{% endif %}>Projects</a></li>
-            <li><a href="{{ '/news' | relative_url }}" {% if page.url == '/news/' %}style="color: var(--text-primary);"{% endif %}>News</a></li>
-            <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about/' %}style="color: var(--text-primary);"{% endif %}>About</a></li>
-            <li><a href="{{ '/join' | relative_url }}" class="btn-primary">Become a Member</a></li>
+            <li><a href="{{ 'events' | relative_url }}" {% if page.url == '/events/' %}style="color: var(--text-primary);"{% endif %}>Events</a></li>
+            <li><a href="{{ 'projects' | relative_url }}" {% if page.url == '/projects/' %}style="color: var(--text-primary);"{% endif %}>Projects</a></li>
+            <li><a href="{{ 'news' | relative_url }}" {% if page.url == '/news/' %}style="color: var(--text-primary);"{% endif %}>News</a></li>
+            <li><a href="{{ 'about' | relative_url }}" {% if page.url == '/about/' %}style="color: var(--text-primary);"{% endif %}>About</a></li>
+            <li><a href="{{ 'join' | relative_url }}" class="btn-primary">Become a Member</a></li>
         </ul>
         <div class="hamburger">
             <span></span>
