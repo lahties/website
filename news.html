@@ -1,0 +1,27 @@
+---
+layout: default
+title: News
+---
+
+<header class="hero" style="height: 60vh;">
+    <div class="container hero-content">
+        <h1 class="fade-in-up">Latest News</h1>
+        <p class="fade-in-up delay-1">Stay updated with the latest happenings at LahtiES.</p>
+    </div>
+    <div class="hero-background"></div>
+</header>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="grid-3">
+            {% for post in site.posts %}
+            <article class="card fade-in-on-scroll">
+                <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <h3 style="margin-top: 10px;">{{ post.title }}</h3>
+                <p style="margin-top: 10px;">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                <a href="{{ post.url | relative_url }}" style="display: inline-block; margin-top: 20px; color: var(--accent-color); font-weight: 600;">Read more &rarr;</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

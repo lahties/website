@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en" }}">
+{% capture custom_css %}
+    .article-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    .article-content p {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+    }
+    .article-content h2 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+    .article-meta {
+        display: flex;
+        gap: 20px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 20px;
+    }
+    .article-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .article-image {
+        width: 100%;
+        height: 400px;
+        background-color: #333;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+    }
+    .lead {
+        font-size: 1.3rem; 
+        color: var(--text-primary); 
+        font-weight: 500;
+    }
+{% endcapture %}
+{% include head.html custom_css=custom_css %}
+<body>
+    {% include header.html %}
+
+    <header class="hero" style="height: 50vh; min-height: 400px;">
+        <div class="container hero-content">
+            <a href="{{ '/news.html' | relative_url }}" style="color: var(--accent-color); font-weight: 600; margin-bottom: 20px; display: inline-block;">&larr; Back to News</a>
+            <h1 class="fade-in-up">{{ page.title }}</h1>
+        </div>
+        <div class="hero-background"></div>
+    </header>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container">
+            <div class="article-content fade-in-on-scroll">
+                <div class="article-meta">
+                    <span>{{ page.date | date: "%b %-d, %Y" }}</span>
+                    <span>&bull;</span>
+                    <span>By {{ page.author | default: "LahtiES Team" }}</span>
+                    <span>&bull;</span>
+                    <span>{{ page.category | default: "News" }}</span>
+                </div>
+
+                {% if page.image %}
+                <div class="article-image">
+                   <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="width:100%; height:100%; object-fit:cover; border-radius: 20px;">
+                </div>
+                {% endif %}
+
+                {{ content }}
+
+                <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3>Share this article</h3>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+</html>

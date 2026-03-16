@@ -1,0 +1,9 @@
+url: ""
+baseurl: ""
+title: "LahtiES"
+email: "board@lahties.com"
+description: "Lahti Entrepreneurship Society - Building the future of entrepreneurship in the Lahti region."
+permalink: /news/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed

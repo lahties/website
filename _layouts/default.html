@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en" }}">
+{% include head.html %}
+<body>
+    <canvas id="stars-canvas" class="stars-canvas"></canvas>
+    {% include header.html %}
+    
+    {{ content }}
+    
+    {% include footer.html %}
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+</html>

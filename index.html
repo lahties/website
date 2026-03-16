@@ -1,0 +1,60 @@
+---
+layout: default
+title: Home
+---
+
+<header class="hero">
+    <div class="container hero-content">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="hero-logo-img">
+        <h1 class="hero-title fade-in-up">Crazy until proven right.</h1>
+        <div class="hero-buttons fade-in-up delay-2">
+            <a href="{{ '/join' | relative_url }}" class="btn-primary">Become a Member</a>
+            <a href="{{ '/projects' | relative_url }}" class="btn-secondary">Our Projects</a>
+        </div>
+    </div>
+    <div class="hero-background" aria-hidden="true">
+        <span class="aurora aurora--1"></span>
+        <span class="aurora aurora--2"></span>
+        <span class="aurora aurora--3"></span>
+    </div>
+</header>
+
+<section class="cool-card-section section-padding">
+    <div class="container">
+        <div class="cool-card-grid">
+            <div class="cool-card cool-card--events">
+                <a href="/events" class="cool-card-link">
+                    <h3 class="cool-card-title">Upcoming Events</h3>
+                </a>
+            </div>
+            <div class="cool-card cool-card--projects">
+                <a href="/projects" class="cool-card-link">
+                    <h3 class="cool-card-title">Explore Projects</h3>
+                </a>
+            </div>
+            <div class="cool-card cool-card--contact">
+                <a href="/about-us" class="cool-card-link">
+                    <h3 class="cool-card-title">About Us</h3>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h1 class="fade-in-up delay-1">Latest News</h1>
+        <p class="fade-in-up delay-1" style="color: var(--text-secondary);">Stay updated with the latest happenings at LahtiES.</p>
+        <br>
+        <br>
+        <div class="grid-3">
+            {% for post in site.posts %}
+            <article class="card fade-in-on-scroll">
+                <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <h3 style="margin-top: 10px;">{{ post.title }}</h3>
+                <p style="margin-top: 10px;">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                <a href="{{ post.url | relative_url }}" style="display: inline-block; margin-top: 20px; color: var(--accent-color); font-weight: 600;">Read more &rarr;</a>
+            </article>
+            {% endfor %}
+        </div>
+        <br>
+        <a href="{{ '/projects' | relative_url }}" class="btn-secondary">More News</a>
+    </div>
+</section>
