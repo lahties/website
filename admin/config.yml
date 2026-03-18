@@ -37,7 +37,7 @@ public_folder: "/assets/images"
 collections:
   - name: "pages"
     label: "Pages"
-    folder: ""
+    folder: "pages"
     create: true
     extension: "html"
     format: "frontmatter"
@@ -50,6 +50,7 @@ collections:
   - name: "posts"
     label: "Posts"
     folder: "_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}

@@ -9,3 +9,4 @@ url: "https://lahties.github.io"
 baseurl: "/website"
 plugins:
   - jekyll-feed
+future: true
