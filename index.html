@@ -58,11 +58,16 @@ title: Home
         <br>
         <div class="grid-3">
             {% for post in site.posts %}
-            <article class="card fade-in-on-scroll">
+            <article class="card fade-in-on-scroll" style="display: flex; flex-direction: column;">
+                {% if post.cover_image %}
+                <img src="{{ post.cover_image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+                {% endif %}
                 <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">{{ post.date | date: "%b %-d, %Y" }}</span>
                 <h3 style="margin-top: 10px;">{{ post.title }}</h3>
                 <p style="margin-top: 10px;">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-                <a href="{{ post.url | relative_url }}" style="display: inline-block; margin-top: 20px; color: var(--accent-color); font-weight: 600;">Read more &rarr;</a>
+                <div style="margin-top: auto; padding-top: 20px;">
+                    <a href="{{ post.url | relative_url }}" style="display: inline-block; color: var(--accent-color); font-weight: 600;">Read more &rarr;</a>
+                </div>
             </article>
             {% endfor %}
         </div>

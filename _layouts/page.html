@@ -1,0 +1,122 @@
+---
+layout: default
+---
+<style>
+    .page-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+    .page-content p {
+        margin-bottom: 20px;
+    }
+    .page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+    .page-content h2 { font-size: 2rem; }
+    .page-content h3 { font-size: 1.75rem; }
+    .page-content a {
+        color: var(--accent-color);
+        text-decoration: underline;
+    }
+    .page-content a:hover {
+        text-decoration: none;
+    }
+    .page-content strong, .page-content b {
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+    .page-content em, .page-content i {
+        font-style: italic;
+    }
+    .page-content s, .page-content strike, .page-content del {
+        text-decoration: line-through;
+    }
+    .page-content u {
+        text-decoration: underline;
+    }
+    .page-content ul, .page-content ol {
+        margin-bottom: 20px;
+        padding-left: 40px;
+    }
+    .page-content ul {
+        list-style-type: disc;
+    }
+    .page-content ol {
+        list-style-type: decimal;
+    }
+    .page-content li {
+        margin-bottom: 10px;
+    }
+    .page-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 20px 0;
+    }
+    .page-content code {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9em;
+    }
+    .page-content pre {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+    }
+    .page-content pre code {
+        background-color: transparent;
+        padding: 0;
+        font-size: 0.95em;
+        color: #e6e6e6;
+    }
+    .page-content blockquote {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 20px;
+        margin: 20px 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px 15px 15px 20px;
+        border-radius: 0 8px 8px 0;
+    }
+</style>
+
+{% if page.hero_visible != false %}
+<header class="hero" style="min-height: 50vh;">
+    <div class="container hero-content">
+        {% if page.hero_content %}
+        {{ page.hero_content | markdownify }}
+        {% else %}
+        <h1 class="fade-in-up hero-title-overlay">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="fade-in-up delay-1 hero-title-overlay">{{ page.description }}</p>
+        {% endif %}
+        {% endif %}
+    </div>
+    <div class="hero-background" aria-hidden="true">
+        {% if page.aurora != false %}
+        <span class="aurora aurora--1"></span>
+        <span class="aurora aurora--2"></span>
+        <span class="aurora aurora--3"></span>
+        {% endif %}
+    </div>
+</header>
+{% else %}
+<!-- Padding for when hero is hidden to prevent content from going under the fixed nav -->
+<div style="padding-top: 100px;"></div>
+{% endif %}
+
+<section class="section-padding">
+    <div class="container page-content">
+        {{ content }}
+    </div>
+</section>

@@ -6,15 +6,86 @@
         margin: 0 auto;
         font-size: 1.1rem;
         line-height: 1.8;
+        color: var(--text-secondary);
     }
     .article-content p {
         margin-bottom: 20px;
-        color: var(--text-secondary);
     }
-    .article-content h2 {
+    .article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6 {
         margin-top: 40px;
         margin-bottom: 20px;
-        font-size: 2rem;
+        color: var(--text-primary);
+    }
+    .article-content h2 { font-size: 2rem; }
+    .article-content h3 { font-size: 1.75rem; }
+    .article-content a {
+        color: var(--accent-color);
+        text-decoration: underline;
+    }
+    .article-content a:hover {
+        text-decoration: none;
+    }
+    .article-content strong, .article-content b {
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+    .article-content em, .article-content i {
+        font-style: italic;
+    }
+    .article-content s, .article-content strike, .article-content del {
+        text-decoration: line-through;
+    }
+    .article-content u {
+        text-decoration: underline;
+    }
+    .article-content ul, .article-content ol {
+        margin-bottom: 20px;
+        padding-left: 40px;
+    }
+    .article-content ul {
+        list-style-type: disc;
+    }
+    .article-content ol {
+        list-style-type: decimal;
+    }
+    .article-content li {
+        margin-bottom: 10px;
+    }
+    .article-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 20px 0;
+    }
+    .article-content code {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9em;
+    }
+    .article-content pre {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+    }
+    .article-content pre code {
+        background-color: transparent;
+        padding: 0;
+        font-size: 0.95em;
+        color: #e6e6e6;
+    }
+    .article-content blockquote {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 20px;
+        margin: 20px 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px 15px 15px 20px;
+        border-radius: 0 8px 8px 0;
     }
     .article-meta {
         display: flex;
@@ -51,12 +122,15 @@
 <body>
     {% include header.html %}
 
-    <header class="hero" style="height: 50vh; min-height: 400px;">
-        <div class="container hero-content">
+    <header class="hero" style="height: 50vh; min-height: 400px; position: relative;">
+        {% if page.cover_image %}
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('{{ page.cover_image | relative_url }}'); background-size: cover; background-position: center; opacity: 0.4; z-index: 0;"></div>
+        {% endif %}
+        <div class="container hero-content" style="position: relative; z-index: 2;">
             <a href="{{ 'news' | relative_url }}" style="color: var(--accent-color); font-weight: 600; margin-bottom: 20px; display: inline-block;">&larr; Back to News</a>
             <h1 class="fade-in-up">{{ page.title }}</h1>
         </div>
-        <div class="hero-background"></div>
+        <div class="hero-background" style="z-index: 1;"></div>
     </header>
 
     <section class="section-padding" style="padding-top: 0;">

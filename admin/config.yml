@@ -42,9 +42,12 @@ collections:
     extension: "html"
     format: "frontmatter"
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Permalink", name: "permalink", widget: "string", required: false}
+      - {label: "Hero Visible", name: "hero_visible", widget: "boolean", default: true, required: false}
+      - {label: "Aurora Animation", name: "aurora", widget: "boolean", default: true, required: false}
+      - {label: "Hero Content", name: "hero_content", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "posts"
@@ -56,6 +59,7 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Cover Image", name: "cover_image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "settings"
