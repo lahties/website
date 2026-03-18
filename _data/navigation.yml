@@ -1,0 +1,12 @@
+main:
+  - title: Events
+    url: /events
+  - title: Projects
+    url: /projects
+  - title: News
+    url: /news
+  - title: About
+    url: /about
+cta:
+  title: Become a Member
+  url: /join
