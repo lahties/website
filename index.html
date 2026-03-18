@@ -6,9 +6,11 @@ title: Home
 <header class="hero">
     <div class="container hero-content">
         <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="hero-logo-img">
-        <h1 class="hero-title fade-in-up">Crazy until proven right.</h1>
+        <h1 class="hero-title fade-in-up">{{ site.data.home.hero_title | default: "Crazy until proven right." }}</h1>
         <div class="hero-buttons fade-in-up delay-2">
-            <a href="{{ 'join' | relative_url }}" class="btn-primary">Become a Member</a>
+            {% if site.data.navigation.cta %}
+            <a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn-primary">{{ site.data.navigation.cta.title }}</a>
+            {% endif %}
             <a href="{{ 'projects' | relative_url }}" class="btn-secondary">Our Projects</a>
         </div>
     </div>
@@ -22,21 +24,31 @@ title: Home
 <section class="cool-card-section section-padding">
     <div class="container">
         <div class="cool-card-grid">
-            <div class="cool-card cool-card--events">
-                <a href="/events" class="cool-card-link">
-                    <h3 class="cool-card-title">Upcoming Events</h3>
-                </a>
-            </div>
-            <div class="cool-card cool-card--projects">
-                <a href="/projects" class="cool-card-link">
-                    <h3 class="cool-card-title">Explore Projects</h3>
-                </a>
-            </div>
-            <div class="cool-card cool-card--contact">
-                <a href="/about-us" class="cool-card-link">
-                    <h3 class="cool-card-title">About Us</h3>
-                </a>
-            </div>
+            {% if site.data.home.features %}
+                {% for feature in site.data.home.features %}
+                <div class="cool-card cool-card--{{ feature.class | default: 'events' }}">
+                    <a href="{{ feature.url | relative_url }}" class="cool-card-link">
+                        <h3 class="cool-card-title">{{ feature.title }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="cool-card cool-card--events">
+                    <a href="/events" class="cool-card-link">
+                        <h3 class="cool-card-title">Upcoming Events</h3>
+                    </a>
+                </div>
+                <div class="cool-card cool-card--projects">
+                    <a href="/projects" class="cool-card-link">
+                        <h3 class="cool-card-title">Explore Projects</h3>
+                    </a>
+                </div>
+                <div class="cool-card cool-card--contact">
+                    <a href="/about" class="cool-card-link">
+                        <h3 class="cool-card-title">About Us</h3>
+                    </a>
+                </div>
+            {% endif %}
         </div>
         <br>
         <br>
@@ -55,6 +67,6 @@ title: Home
             {% endfor %}
         </div>
         <br>
-        <a href="{{ 'projects' | relative_url }}" class="btn-secondary">More News</a>
+        <a href="{{ 'news' | relative_url }}" class="btn-secondary">More News</a>
     </div>
 </section>

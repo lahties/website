@@ -4,21 +4,22 @@
             <h4>LahtiES</h4>
             <p>Lahti Entrepreneurship Society</p>
         </div>
+        {% for col in site.data.footer.columns %}
         <div class="footer-col">
-            <h4>Links</h4>
+            <h4>{{ col.title }}</h4>
             <ul>
-                <li><a href="{{ 'projects.html' | relative_url }}">Projects</a></li>
-                <li><a href="{{ 'news.html' | relative_url }}">News</a></li>
-                <li><a href="{{ 'about.html' | relative_url }}">About</a></li>
-                <li><a href="{{ 'join.html' | relative_url }}">Join</a></li>
+                {% for link in col.links %}
+                <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+                {% endfor %}
             </ul>
         </div>
+        {% endfor %}
         <div class="footer-col">
             <h4>Connect</h4>
             <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Facebook</a>
+                {% for link in site.data.footer.social %}
+                <a href="{{ link.url }}">{{ link.platform }}</a>
+                {% endfor %}
             </div>
         </div>
     </div>

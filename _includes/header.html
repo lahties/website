@@ -4,11 +4,12 @@
             <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="{{ 'events' | relative_url }}" {% if page.url == '/events/' %}style="color: var(--text-primary);"{% endif %}>Events</a></li>
-            <li><a href="{{ 'projects' | relative_url }}" {% if page.url == '/projects/' %}style="color: var(--text-primary);"{% endif %}>Projects</a></li>
-            <li><a href="{{ 'news' | relative_url }}" {% if page.url == '/news/' %}style="color: var(--text-primary);"{% endif %}>News</a></li>
-            <li><a href="{{ 'about' | relative_url }}" {% if page.url == '/about/' %}style="color: var(--text-primary);"{% endif %}>About</a></li>
-            <li><a href="{{ 'join' | relative_url }}" class="btn-primary">Become a Member</a></li>
+            {% for item in site.data.navigation.main %}
+            <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}style="color: var(--text-primary);"{% endif %}>{{ item.title }}</a></li>
+            {% endfor %}
+            {% if site.data.navigation.cta %}
+            <li><a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn-primary">{{ site.data.navigation.cta.title }}</a></li>
+            {% endif %}
         </ul>
         <div class="hamburger">
             <span></span>
