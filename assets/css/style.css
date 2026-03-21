@@ -54,11 +54,12 @@ ul {
 
 /* Navigation */
 .navbar {
-    height: var(--nav-height);
+    height: calc(var(--nav-height) + 20rem);
+    padding-top: 20rem;
     background-color: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     position: fixed;
-    top: 0;
+    top: -20rem;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -111,8 +112,9 @@ ul {
     border-radius: 50px;
     font-weight: 600;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
-    display: inline-block;
-}
+    display: inline-flex;
+    gap: .2rem;
+    align-items: center;}
 
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -129,12 +131,17 @@ ul {
     border-radius: 50px;
     font-weight: 600;
     transition: all var(--transition-speed) ease;
-    display: inline-block;
-}
+    display: inline-flex;
+    gap: .2rem;
+    align-items: center;}
 
 .btn-secondary:hover {
     border-color: var(--text-primary);
     background: rgba(255, 255, 255, 0.05);
+}
+
+.material-symbols-outlined{
+    font-size: 1.3rem!important;
 }
 
 /* Hamburger Menu */
@@ -448,6 +455,7 @@ ul {
     background-color: var(--surface-color);
     padding: 80px 0 20px;
     margin-top: 50px;
+
 }
 
 .footer-content {
@@ -517,7 +525,7 @@ ul {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 780px) {
     .nav-links {
         position: fixed;
         top: var(--nav-height);
@@ -537,7 +545,7 @@ ul {
 
     .hamburger {
         display: block;
-    }
+    }   
 
     .hero h1 {
         font-size: 2.5rem;
@@ -545,6 +553,9 @@ ul {
     
     .hero-buttons {
         flex-direction: column;
+    }
+    .hero-buttons>* {
+        justify-content: center;
     }
 }
 
@@ -562,31 +573,7 @@ ul {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: box-shadow var(--transition-speed) ease;
-}
-
-
-.cool-card--projects {
-    background: #11183a;
-}
-
-.cool-card--events {
-    background: #11183a;
-}
-
-.cool-card--community {
-    background: #11183a;
-}
-
-.cool-card--growth {
-    background: #11183a;
-}
-
-.cool-card--resources {
-    background: #11183a;
-}
-
-.cool-card--contact {
-    background: #11183a;
+    border: 2px solid var(--text-secondary);
 }
 
 .cool-card:hover {

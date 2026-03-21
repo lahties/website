@@ -1,13 +1,13 @@
 ---
 layout: default
 ---
-<style>
+    <style>
     .page-content {
         max-width: 800px;
         margin: 0 auto;
         font-size: 1.1rem;
         line-height: 1.8;
-        color: var(--text-secondary);
+        color: var(--text-primary);
     }
     .page-content p {
         margin-bottom: 20px;
@@ -91,7 +91,7 @@ layout: default
 </style>
 
 {% if page.hero_visible != false %}
-<header class="hero" style="min-height: 50vh;">
+<header class="hero" style="height: 50vh;">
     <div class="container hero-content">
         {% if page.hero_content %}
         {{ page.hero_content | markdownify }}
@@ -116,7 +116,7 @@ layout: default
 {% endif %}
 
 <section class="section-padding">
-    <div class="container page-content">
+    <div class="container page-content fade-in-on-scroll">
         {{ content }}
     </div>
 </section>

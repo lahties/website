@@ -8,5 +8,5 @@ main:
   - title: About
     url: /about
 cta:
-  title: Become a Member
-  url: /join
+  title: Become a Member <span class="material-symbols-outlined">open_in_new</span>
+  url: https://forms.gle/j5AdBEgBMursQPNY7

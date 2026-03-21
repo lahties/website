@@ -57,11 +57,10 @@ title: Home
         <br>
         <br>
         <div class="grid-3">
-            {% for post in site.posts %}
+            {% for post in site.posts limit: 3 %}
             <article class="card fade-in-on-scroll" style="display: flex; flex-direction: column;">
-                {% if post.cover_image %}
-                <img src="{{ post.cover_image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
-                {% endif %}
+                {% assign card_img = post.cover_image | default: "assets/images/placeholder.png" %}
+                <img src="{{ card_img | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
                 <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">{{ post.date | date: "%b %-d, %Y" }}</span>
                 <h3 style="margin-top: 10px;">{{ post.title }}</h3>
                 <p style="margin-top: 10px;">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
