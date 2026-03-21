@@ -455,6 +455,9 @@ ul {
     background-color: var(--surface-color);
     padding: 80px 0 20px;
     margin-top: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-content {
@@ -486,12 +489,24 @@ ul {
     gap: 20px;
 }
 
+.social-links img {
+    height: 2rem;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--text-secondary);
     font-size: 0.9rem;
+}
+
+.legal-links {
+    text-decoration: none;
+}
+
+.legal-links:hover {
+    color: var(--text-primary);
 }
 
 /* Animations */
