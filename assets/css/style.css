@@ -586,12 +586,13 @@ ul {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: box-shadow var(--transition-speed) ease;
-    border: 2px solid var(--text-secondary);
+    border: 2px solid var(--surface-color);
+    transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
 .cool-card:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .cool-card-link {
