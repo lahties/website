@@ -55,7 +55,7 @@ ul {
 /* Navigation */
 .navbar {
     height: calc(var(--nav-height) + 20rem);
-    padding-top: 20rem;
+    border-top: 20rem solid rgba(10, 10, 10, 0.8);
     background-color: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     position: fixed;
