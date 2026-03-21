@@ -189,7 +189,7 @@ ul {
 }
 
 .board-bg {
-    background: linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url('../images/board.jpg') top center/cover no-repeat;
+    background: linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url('../images/board.webp') top center/cover no-repeat;
     opacity: 1;
 }
 
