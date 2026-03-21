@@ -102,6 +102,13 @@ collections:
             fields:
               - {label: "Platform", name: "platform", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
+          - label: "Legal Links"
+            name: "legal"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "File/URL", name: "url", widget: "file", required: false}
       - label: "Home Page Settings"
         name: "home_page"
         file: "_data/home.yml"

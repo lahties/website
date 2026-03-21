@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container footer-content">
         <div class="footer-col">
-            <h4>LahtiES</h4>
+            <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="logo-img">
             <p>Lahti Entrepreneurship Society</p>
         </div>
         {% for col in site.data.footer.columns %}
@@ -25,5 +25,12 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; {{ 'now' | date: "%Y" }} LahtiES. All rights reserved.</p>
+        {% if site.data.footer.legal %}
+        <div class="legal-links">
+            {% for link in site.data.footer.legal %}
+            <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </footer>
