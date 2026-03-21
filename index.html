@@ -9,7 +9,7 @@ title: Home
         <h1 class="hero-title fade-in-up">{{ site.data.home.hero_title | default: "Crazy until proven right." }}</h1>
         <div class="hero-buttons fade-in-up delay-2">
             {% if site.data.navigation.cta %}
-            <a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn-primary">{{ site.data.navigation.cta.title }}</a>
+            <a href="{{ site.data.navigation.cta.url | relative_url }}"  target="_blank" class="btn-primary">{{ site.data.navigation.cta.title }}</a>
             {% endif %}
             <a href="{{ 'projects' | relative_url }}" class="btn-secondary">Our Projects</a>
         </div>
@@ -33,18 +33,18 @@ title: Home
                 </div>
                 {% endfor %}
             {% else %}
-                <div class="cool-card cool-card--events">
-                    <a href="/events" class="cool-card-link">
+                <div class="cool-card cool-card--events" onclick="window.location.href=`{{ 'events' | relative_url }}`">
+                    <a href="{{ 'events' | relative_url }}" class="cool-card-link">
                         <h3 class="cool-card-title">Upcoming Events</h3>
                     </a>
                 </div>
-                <div class="cool-card cool-card--projects">
-                    <a href="/projects" class="cool-card-link">
+                <div class="cool-card cool-card--projects" onclick="window.location.href=`{{ 'projects' | relative_url }}`">
+                    <a href="{{ 'projects' | relative_url }}" class="cool-card-link">
                         <h3 class="cool-card-title">Explore Projects</h3>
                     </a>
                 </div>
-                <div class="cool-card cool-card--contact">
-                    <a href="/about" class="cool-card-link">
+                <div class="cool-card cool-card--contact" onclick="window.location.href=`{{ 'about' | relative_url }}`">
+                    <a href="{{ 'about' | relative_url }}" class="cool-card-link">
                         <h3 class="cool-card-title">About Us</h3>
                     </a>
                 </div>

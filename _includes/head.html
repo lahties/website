@@ -2,6 +2,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }} | LahtiES</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ page.title | default: site.title | escape }} | LahtiES">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    {% if page.layout == 'post' %}
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    {% else %}
+    <meta property="og:type" content="website">
+    {% endif %}
+    <meta property="og:description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | truncatewords: 30 | escape }}">
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+    {% else %}
+    <meta property="og:image" content="{{ 'assets/images/page-banner.png' | absolute_url }}">
+    {% endif %}
+
     <link rel="icon" type="image/svg+xml" href="{{ 'assets/images/favicon.svg' | relative_url }}">
     <link rel="stylesheet" href="{{ 'assets/css/style.css' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -5,10 +5,12 @@
         </a>
         <ul class="nav-links">
             {% for item in site.data.navigation.main %}
-            <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}style="color: var(--text-primary);"{% endif %}>{{ item.title }}</a></li>
+            {% assign page_href = page.url | relative_url | append: '/' | replace: '//', '/' %}
+            {% assign item_href = item.url | relative_url | append: '/' | replace: '//', '/' %}
+            <li><a href="{{ item.url | relative_url }}" {% if page_href == item_href %}class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
             {% endfor %}
             {% if site.data.navigation.cta %}
-            <li><a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn-primary">{{ site.data.navigation.cta.title }}</a></li>
+            <li><a href="{{ site.data.navigation.cta.url | relative_url }}" target="_blank" class="btn-primary">{{ site.data.navigation.cta.title }}</a></li>
             {% endif %}
         </ul>
         <div class="hamburger">

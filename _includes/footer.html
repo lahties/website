@@ -3,6 +3,7 @@
         <div class="footer-col">
             <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="logo-img">
             <p>Lahti Entrepreneurship Society</p>
+            <p style="color: var(--text-secondary);margin-top: 1rem;">LahtiES is home to passionate, ambitious individuals who believe in the power of innovation and learning from every experience. </p>
         </div>
         {% for col in site.data.footer.columns %}
         <div class="footer-col">
@@ -17,8 +18,16 @@
         <div class="footer-col">
             <h4>Socials</h4>
             <div class="social-links">
-                <a href="https://www.instagram.com/lahti_es/"><img src="{{ 'assets/images/instagram.png' | relative_url }}" alt="Instagram"></a>
-                <a href="https://luma.com/lahti_es"><img src="{{ 'assets/images/luma.png' | relative_url }}" alt="Luma"></a>
+                <a href="https://www.instagram.com/lahti_es/" target="_blank"><img src="{{ 'assets/images/instagram.png' | relative_url }}" alt="Instagram"></a>
+                <a href="https://luma.com/lahti_es" target="_blank"><img src="{{ 'assets/images/luma.png' | relative_url }}" alt="Luma"></a>
+                <a href="https://www.linkedin.com/company/lahti-entrepreneurship-society" target="_blank"><img src="{{ 'assets/images/linkedin.svg' | relative_url }}" alt="LinkedIn"></a>
+            </div>
+            <br>
+            <h4>Partners</h4>
+            <div class="social-links">
+                <a href="https://ladec.fi" target="_blank"><img src="{{ 'assets/images/ladec.png' | relative_url }}" alt="Ladec"></a>
+                <a href="https://lahti.fi" target="_blank"><img src="{{ 'assets/images/lahti.png' | relative_url }}" alt="City of Lahti"></a>
+                <a href="https://crazytown.fi" target="_blank"><img src="{{ 'assets/images/crazy-town.png' | relative_url }}" alt="Crazy Town"></a>
             </div>
         </div>
     </div>

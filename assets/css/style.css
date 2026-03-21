@@ -99,6 +99,11 @@ ul {
     color: var(--text-secondary);
 }
 
+.nav-links a.active {
+    color: var(--text-primary);
+    pointer-events: none;
+}
+
 .nav-links a:hover {
     color: var(--text-primary);
 }
@@ -337,6 +342,8 @@ ul {
     margin-top: 10px;
     transition: color var(--transition-speed) ease;
 }
+
+
 .linkedin-profile:hover {
     color: var(--accent-color);
     text-decoration: underline;
@@ -588,6 +595,7 @@ ul {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     border: 2px solid var(--surface-color);
     transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    cursor: pointer;
 }
 
 .cool-card:hover {

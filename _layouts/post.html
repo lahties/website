@@ -154,10 +154,20 @@
 
                 <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                     <h3>Share this article</h3>
-                    <div class="social-links" style="margin-top: 20px;">
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
+                    <div class="social-links" style="margin-top: 20px; display:flex; flex-wrap: wrap; gap:12px; align-items: center;">
+                        <button id="share-linkedin" class="btn-secondary" type="button" aria-label="Share on LinkedIn">
+                            <img src="{{ '/assets/images/linkedin.svg' | relative_url }}" alt="LinkedIn" style="width: 20px; height: 20px; margin: 0 8px 0 0; border-radius: 0;">LinkedIn
+                        </button>
+                        <button id="share-whatsapp" class="btn-secondary" type="button" aria-label="Share on WhatsApp">
+                            <img src="{{ '/assets/images/whatsapp.svg' | relative_url }}" alt="WhatsApp" style="width: 20px; height: 20px; margin: 0 8px 0 0; border-radius: 0;">WhatsApp
+                        </button>
+                        <button id="share-telegram" class="btn-secondary" type="button" aria-label="Share on Telegram">
+                            <img src="{{ '/assets/images/telegram.svg' | relative_url }}" alt="Telegram" style="width: 20px; height: 20px; margin: 0 8px 0 0; border-radius: 0;">Telegram
+                        </button>
+                        <button id="copy-post-link" class="btn-secondary" type="button" aria-label="Copy post link">
+                            <span class="material-symbols-outlined">link_2</span>Copy link
+                        </button>
+                        <span id="copy-post-link-status" style="opacity: 0; transition: opacity .2s; font-weight: 600; color: var(--accent-color);">Copied!</span>
                     </div>
                 </div>
             </div>
