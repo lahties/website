@@ -40,24 +40,28 @@ document.addEventListener('DOMContentLoaded', () => {
         function initCanvas() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
-            createStars();
+            adjustStars();
         }
 
-        function createStars() {
-            stars = [];
+        function adjustStars() {
             const numStars = Math.floor(width * height / 3000); // Density of stars
-            for (let i = 0; i < numStars; i++) {
-                const baseVx = Math.floor(Math.random() * 50) - 25;
-                const baseVy = Math.floor(Math.random() * 50) - 25;
-                stars.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    radius: Math.random() * 1.5 + 0.5,
-                    vx: baseVx,
-                    vy: baseVy,
-                    baseVx: baseVx,
-                    baseVy: baseVy
-                });
+            
+            if (stars.length < numStars) {
+                for (let i = stars.length; i < numStars; i++) {
+                    const baseVx = Math.floor(Math.random() * 50) - 25;
+                    const baseVy = Math.floor(Math.random() * 50) - 25;
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        vx: baseVx,
+                        vy: baseVy,
+                        baseVx: baseVx,
+                        baseVy: baseVy
+                    });
+                }
+            } else if (stars.length > numStars) {
+                stars.length = numStars;
             }
         }
 
