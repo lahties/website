@@ -1,7 +1,7 @@
 :root {
     --bg-color: #050814;
     --surface-color: #11183a;
-    --text-primary: #ffffff;
+    --text-primary: #f3efe8;
     --text-secondary: #a0a0a0;
     --accent-color: #3b82f6; /* Electric Blue */
     --accent-hover: #2563eb;
@@ -236,13 +236,11 @@ ul {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 20px;
-    color: #fff;
     text-shadow: 0 2px 16px rgba(0,0,0,0.85), 0 1px 0 #222;
     line-height: 1.1;
 }
 
 .hero-title-overlay {
-    color: #fff !important;
     text-shadow: 0 2px 16px rgba(0,0,0,0.85), 0 1px 0 #222;
     background: none !important;
     -webkit-background-clip: initial !important;
@@ -323,7 +321,6 @@ ul {
 
 /* LinkedIn / profile links in team cards */
 .team-link {
-    color: var(--text-secondary);
     font-weight: 600;
     transition: color var(--transition-speed) ease;
 }
@@ -338,14 +335,14 @@ ul {
     align-items: center;
     gap: 6px;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--accent-color);
     margin-top: 10px;
     transition: color var(--transition-speed) ease;
 }
 
 
 .linkedin-profile:hover {
-    color: var(--accent-color);
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -361,18 +358,17 @@ ul {
     justify-content: center;
     gap: 6px;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--accent-color);
     margin-top: 10px;
     margin-left: 10px;
     transition: color var(--transition-speed) ease;
 }
 .email-profile:hover {
-    color: var(--accent-color);
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
 .email-icon {
-    fill: var(--text-secondary);
     width: 20px;
     height: 20px;
     flex-shrink: 0;

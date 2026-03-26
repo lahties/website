@@ -5,19 +5,14 @@ title: Home
 
 <header class="hero">
     <div class="container hero-content">
-        <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="hero-logo-img">
-        <h1 class="hero-title fade-in-up">{{ site.data.home.hero_title | default: "Crazy until proven right." }}</h1>
+        <img src="{{ 'assets/images/logo.png' | relative_url }}" alt="LahtiES Logo" class="hero-logo-img fade-in-up">
+        <h1 class="hero-title fade-in-up delay-1">{{ site.data.home.hero_title | default: "Crazy until proven right." }}</h1>
         <div class="hero-buttons fade-in-up delay-2">
             {% if site.data.navigation.cta %}
             <a href="{{ site.data.navigation.cta.url | relative_url }}"  target="_blank" class="btn-primary">{{ site.data.navigation.cta.title }}</a>
             {% endif %}
             <a href="{{ 'projects' | relative_url }}" class="btn-secondary">Our Projects</a>
         </div>
-    </div>
-    <div class="hero-background" aria-hidden="true">
-        <span class="aurora aurora--1"></span>
-        <span class="aurora aurora--2"></span>
-        <span class="aurora aurora--3"></span>
     </div>
 </header>
 
