@@ -2,9 +2,9 @@ columns:
   - title: Legal
     links:
       - title: Association Rules (Finnish)
-        url: /legal
+        url: /assets/files/rules-finnish.pdf
       - title: Association Rules (English)
-        url: /legal
+        url: /assets/files/rules-english.pdf
 social:
   - platform: Instagram
     url: https://www.instagram.com/lahti_es/
@@ -12,3 +12,4 @@ social:
     url: https://luma.com/lahti_es
 legal:
   - title: Privacy Policy
+    url: /assets/files/privacy-policy.pdf
