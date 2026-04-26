@@ -2,7 +2,7 @@
 layout: post
 title: You don't need a perfect idea
 date: 2026-04-26T21:25:00.000+03:00
-cover_image: /assets/images/dsc01623-3.jpg
+cover_image: /assets/images/dsc01623-2.jpg
 ---
 #### **Most ideas don't start as "projects."**
 
