@@ -8,7 +8,7 @@ cover_image: /assets/images/dsc01113.jpg
 
 There's something about getting on a bus early in the morning with a group of people who are at least a little curious about what's next.
 
-On March 30th, we dedicated exactly that.
+On March 30th, we did exactly that.
 
 What sounds like a simple excursion to Helsinki turned into something slightly more meaningful, a full day of conversations, new perspectives, and a closer look at how things actually move inside a startup ecosystem.
 
@@ -20,17 +20,17 @@ We didn't just "stop by" companies. We got inside.
 
 At ***Herizon Oy***, we saw how early-stage ideas are shaped into something tangible. Not polished, not perfect, but real. One of the more interesting parts here was around hiring. Not just who you hire, but when, why, and what actually matters at an early stage. Turns out, building a team is less about finding “perfect” people and more about finding the right ones for *right now.*
 
-At ***Antler***, the focus shifted. From ideas to scale. From "What if" to "what's next". You start to see how different the game becomes when execution meets pressure.
+At ***Antler***, the focus shifted. From ideas to scale. From "what if" to "what's next". You start to see how different the game becomes when execution meets pressure.
 
-Then came* **AaltoES***. A place that feels less like an organisation and more like a mindset. It's fast, slightly chaotic in a good way, and built around people who just decide to do things instead of waiting.
+Then came ***AaltoES***. A place that feels less like an organisation and more like a mindset. It's fast, slightly chaotic in a good way, and built around people who just decide to do things instead of waiting.
 
 And somewhere in between, at ***Aalto Founder School***, things got a bit more structured, showing how entrepreneurship can also be learned, tested, and developed with intention.
 
 Somewhere between "I might try this" and "okay... maybe I actually could"
 
-What stayed with us wasn't just what wa said during the visits. It was how the atmosphere slowly changed throughout the day.
+What stayed with us wasn't just what was said during the visits. It was how the atmosphere slowly changed throughout the day.
 
-At first, people were just listening. Taking it in and asking safe questions. But as the day went on, you could notice something shifting. Conversations got more specific. People started leaving the main visits for the meetings related to their idea, questioning stuff instead of just nodding along.
+At first, people were just listening. Taking it in and asking safe questions. But as the day went on, you could notice something shifting. Conversations got more specific. People started questioning stuff instead of just nodding along. Some even stepped out of the main visits to have side conversations about their own ideas.
 
 Nothing dramatic. Just a quiet change in how people were thinking.
 
@@ -48,6 +48,6 @@ Not fully built startup ideas. Not some sudden "this is it" moment. But somethin
 2. The realisation that these people and places are not as far away as they seem
 3. A bit more confidence to try something, even if it's still just an idea in your notes
 
-We could break everything into lessons and bullet points, but, honestly, that wouldn't really capture it. Some things just make sense once you've been there ;)
+We could break everything into lessons and bullet points, but honestly, that wouldn't really capture it. Some things just make sense once you've been there ;)
 
 ![](/assets/images/dsc01037.jpg)
