@@ -26,10 +26,10 @@ auth:
   avatar_url_claim: avatar_url
 
 # Better Decap + Bridge logo (optional)
-logo_url: https://lahties.github.io/website/assets/images/logo.png
+logo_url: https://lahties.com/assets/images/logo.png
 
 # Add site links in Decap CMS (optional)
-site_url: https://lahties.github.io/website
+site_url: https://lahties.com
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
