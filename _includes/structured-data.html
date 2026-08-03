@@ -1,0 +1,78 @@
+{% assign organization = site.data.organization %}
+{% assign organization_name = organization.name | default: site.title %}
+{% assign organization_logo = organization.logo | default: "/assets/images/logo.png" %}
+{% capture organization_url %}{{ '/' | absolute_url }}{% endcapture %}
+{% capture organization_id %}{{ organization_url }}#organization{% endcapture %}
+
+{% comment %}
+  Google recommends Organization markup on the home page. The same organization is
+  referenced as the publisher in article markup below.
+{% endcomment %}
+{% if page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": {{ organization_id | jsonify }},
+  "name": {{ organization_name | jsonify }},
+  "alternateName": {{ organization.alternate_name | default: site.title | jsonify }},
+  "url": {{ organization_url | jsonify }},
+  "description": {{ organization.description | default: site.description | jsonify }},
+  "email": {{ site.email | jsonify }},
+  "logo": {
+    "@type": "ImageObject",
+    "url": {{ organization_logo | absolute_url | jsonify }}
+  },
+  "sameAs": {{ site.social.links | jsonify }}{% if organization.legal_name %},
+  "legalName": {{ organization.legal_name | jsonify }}{% endif %}{% if organization.phone %},
+  "telephone": {{ organization.phone | jsonify }}{% endif %}{% if organization.founding_date %},
+  "foundingDate": {{ organization.founding_date | jsonify }}{% endif %}{% if organization.street_address or organization.postal_code or organization.address_locality or organization.address_region or organization.address_country %},
+  "address": {
+    "@type": "PostalAddress"{% if organization.street_address %},
+    "streetAddress": {{ organization.street_address | jsonify }}{% endif %}{% if organization.postal_code %},
+    "postalCode": {{ organization.postal_code | jsonify }}{% endif %}{% if organization.address_locality %},
+    "addressLocality": {{ organization.address_locality | jsonify }}{% endif %}{% if organization.address_region %},
+    "addressRegion": {{ organization.address_region | jsonify }}{% endif %}{% if organization.address_country %},
+    "addressCountry": {{ organization.address_country | jsonify }}{% endif %}
+  }{% endif %}
+}
+</script>
+{% endif %}
+
+{% if page.layout == "post" %}
+{% assign article_image = page.cover_image | default: page.image %}
+{% assign article_author_name = page.author_name | default: page.author | default: organization_name %}
+{% assign article_author_type = page.author_type | default: "Organization" %}
+{% assign article_description = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | normalize_whitespace %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": {{ page.url | absolute_url | append: "#article" | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | absolute_url | jsonify }}
+  },
+  "headline": {{ page.title | jsonify }},
+  "description": {{ article_description | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},{% if article_image %}
+  "image": {{ article_image | absolute_url | jsonify }},{% endif %}
+  "author": {
+    "@type": {{ article_author_type | jsonify }},
+    "name": {{ article_author_name | jsonify }}{% if page.author_url %},
+    "url": {{ page.author_url | jsonify }}{% endif %}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": {{ organization_id | jsonify }},
+    "name": {{ organization_name | jsonify }},
+    "url": {{ organization_url | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ organization_logo | absolute_url | jsonify }}
+    }
+  }
+}
+</script>
+{% endif %}

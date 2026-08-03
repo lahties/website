@@ -59,7 +59,12 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Cover Image", name: "cover_image", widget: "image", required: false}
+      - {label: "Cover Image", name: "cover_image", widget: "image", required: true, hint: "Use a relevant, publicly accessible image at least 1200 px wide when possible."}
+      - {label: "Article description", name: "description", widget: "text", required: false, hint: "A concise summary for search results (recommended)."}
+      - {label: "Author name", name: "author_name", widget: "string", default: "Lahti Entrepreneurship Society", required: false}
+      - {label: "Author type", name: "author_type", widget: "select", options: ["Organization", "Person"], default: "Organization", required: false}
+      - {label: "Author profile URL", name: "author_url", widget: "string", required: false, hint: "Required when a named person is the author; use their profile or bio page."}
+      - {label: "Date modified", name: "last_modified_at", widget: "datetime", required: false, hint: "Update this after making a substantial change to a published article."}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "settings"
@@ -109,6 +114,22 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "File/URL", name: "url", widget: "file", required: false}
+      - label: "Organization Rich Results"
+        name: "organization"
+        file: "_data/organization.yml"
+        fields:
+          - {label: "Organization name", name: "name", widget: "string"}
+          - {label: "Alternate name", name: "alternate_name", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Logo", name: "logo", widget: "image", hint: "Use a crawlable logo at least 112 × 112 px."}
+          - {label: "Legal registered name", name: "legal_name", widget: "string", required: false}
+          - {label: "Public phone number", name: "phone", widget: "string", required: false}
+          - {label: "Street address", name: "street_address", widget: "string", required: false}
+          - {label: "Postal code", name: "postal_code", widget: "string", required: false}
+          - {label: "City", name: "address_locality", widget: "string", required: false}
+          - {label: "Region", name: "address_region", widget: "string", required: false}
+          - {label: "Country code", name: "address_country", widget: "string", required: false, hint: "Use a two-letter code, for example FI."}
+          - {label: "Founding date", name: "founding_date", widget: "datetime", required: false}
       - label: "Home Page Settings"
         name: "home_page"
         file: "_data/home.yml"
