@@ -2,7 +2,7 @@
 layout: post
 title: Someone has to make things happen
 date: 2026-04-26T21:28:00.000+03:00
-cover_image: /assets/images/dsc01207.jpg
+cover_image: /assets/images/dsc0120.jpg
 ---
 ### **Every event that "just works" usually has one person behind it making sure it does.**
 

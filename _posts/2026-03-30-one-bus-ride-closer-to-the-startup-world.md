@@ -2,7 +2,7 @@
 layout: post
 title: One Bus Ride Closer to the Startup World
 date: 2026-03-30T19:46:00.000+03:00
-cover_image: /assets/images/dsc01113.jpg
+cover_image: /assets/images/dsc0111.jpg
 ---
 **The yearly classic, but never quite the same**
 
@@ -12,7 +12,7 @@ On March 30th, we did exactly that.
 
 What sounds like a simple excursion to Helsinki turned into something slightly more meaningful, a full day of conversations, new perspectives, and a closer look at how things actually move inside a startup ecosystem.
 
-![](/assets/images/dsc00993.jpg)
+![](/assets/images/dsc0099.jpg)
 
 **Not just visits - real access**
 
@@ -38,7 +38,7 @@ Entrepreneurship stopped feeling like something distant or "meant for other peop
 
 Still messy. Still uncertain. But not as out of reach as it might've seemed before.
 
-![](/assets/images/dsc01144.jpg)
+![](/assets/images/dsc0114.jpg)
 
 **So what did we actually bring back?**
 
@@ -50,4 +50,4 @@ Not fully built startup ideas. Not some sudden "this is it" moment. But somethin
 
 We could break everything into lessons and bullet points, but honestly, that wouldn't really capture it. Some things just make sense once you've been there ;)
 
-![](/assets/images/dsc01037.jpg)
+![](/assets/images/dsc0103.jpg)
