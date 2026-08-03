@@ -1,0 +1,138 @@
+name: Optimize images and deploy Jekyll
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# The optimizer commits changed image files, and Pages needs deployment access.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+# Queue deployments rather than cancelling one halfway through.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # Change this to match Decap CMS's media_folder setting.
+  IMAGE_DIR: assets/images
+
+  # Images are resized to fit inside this box without being enlarged.
+  MAX_WIDTH: "2400"
+  MAX_HEIGHT: "2400"
+
+  JPEG_QUALITY: "82"
+  WEBP_QUALITY: "82"
+
+  # Do not rewrite an already-small image unless at least this percentage is saved.
+  MIN_SAVINGS_PERCENT: "2"
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Install image optimizer
+        run: >-
+          npm install
+          --prefix .github/scripts
+          --no-save
+          --package-lock=false
+          sharp@0.35.3
+
+      - name: Find images changed by this push
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          : > .images-to-optimize
+
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            # A manual run intentionally checks every tracked image once.
+            git ls-files -z -- "$IMAGE_DIR" > .images-to-optimize
+          elif [[ -n "${BEFORE_SHA:-}" ]] \
+            && [[ ! "$BEFORE_SHA" =~ ^0+$ ]] \
+            && git cat-file -e "$BEFORE_SHA^{commit}" 2>/dev/null; then
+            git diff \
+              --name-only \
+              --diff-filter=ACMRT \
+              -z \
+              "$BEFORE_SHA" \
+              "$CURRENT_SHA" \
+              -- "$IMAGE_DIR" > .images-to-optimize
+          else
+            # Covers the first push to a branch or an unavailable previous commit.
+            git ls-files -z -- "$IMAGE_DIR" > .images-to-optimize
+          fi
+
+          IMAGE_COUNT="$(tr -cd '\0' < .images-to-optimize | wc -c | tr -d ' ')"
+          echo "Found $IMAGE_COUNT candidate image file(s)."
+
+      - name: Resize and compress changed images
+        run: node .github/scripts/optimize-images.mjs .images-to-optimize
+
+      - name: Commit optimized images
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- "$IMAGE_DIR"; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- "$IMAGE_DIR"
+          git commit -m "chore(images): optimize uploaded media [skip ci]"
+
+          # Rebase in case another Decap edit landed while this run was executing.
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Build site with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
