@@ -579,12 +579,12 @@ ul {
 
     .hamburger {
         display: block;
-    }   
+    }
 
     .hero h1 {
         font-size: 8vw;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
@@ -658,4 +658,8 @@ ul {
     content: ' →';
     opacity: 0;
     transition: opacity var(--transition-speed) ease;
+}
+
+.projects-grid h1 {
+    margin: 1rem;
 }

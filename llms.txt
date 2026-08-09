@@ -1,0 +1,24 @@
+# LahtiES
+
+> Lahti Entrepreneurship Society - Crazy until proven right.
+
+LahtiES is home to passionate, ambitious individuals who believe in the power of innovation and learning from every experience.
+We are based in the Isku Center in Lahti, Finland. We are a non-profit student organization founded in 2024.
+
+## Pages
+
+- [About](https://lahties.com/about) - Displays information about the current board composition and officers.
+- [Events](https://lahties.com/events) - Displays a Luma iframe with all upcoming events.
+- [Projects](https://lahties.com/projects) - Contains all the former and present projects that LahtiES has.
+- [News](https://lahties.com/news) - News related to LahtiES (like event recaps, board changes etc.).
+
+## Socials
+
+- [Website](https://lahties.com)
+- [Instagram](https://www.instagram.com/lahti_es/)
+- [Luma](https://luma.com/lahti_es)
+- [LinkedIn](https://www.linkedin.com/company/lahti-entrepreneurship-society)
+
+## Contact
+
+- Email: board@lahties.com
