@@ -1,5 +1,13 @@
 columns:
   - title: Legal
+    items:
+      - label: "Business ID"
+        value: "3420277-8"
+      - label: "Address"
+        value: "Mukkulankatu 19, 15210 Lahti"
+      - label: "Email"
+        url: "mailto:board@lahties.com"
+        value: "board@lahties.com"
     links:
       - title: Association Rules (Finnish)
         url: /assets/files/rules-finnish.pdf

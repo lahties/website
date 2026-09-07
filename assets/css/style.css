@@ -493,6 +493,11 @@ ul {
 
 .footer-col ul li {
     margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.footer-col ul li b {
+    color: var(--text-primary);
 }
 
 .footer-col ul li a {
