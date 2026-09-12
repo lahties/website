@@ -70,6 +70,18 @@ collections:
   - name: "settings"
     label: "Settings"
     files:
+      - label: "Notification Bar"
+        name: "notification"
+        file: "_data/notification.yml"
+        fields:
+          - {label: "Enabled", name: "enabled", widget: "boolean", default: true}
+          - {label: "Announcement ID", name: "id", widget: "string", default: "announcement-1", hint: "Change this ID when updating the announcement to show it again to visitors who previously closed it."}
+          - {label: "Badge", name: "badge", widget: "string", required: false, hint: "Optional badge/tag, e.g. 'Upcoming' or 'New'"}
+          - {label: "Message", name: "message", widget: "string"}
+          - {label: "Link Text", name: "link_text", widget: "string", required: false, hint: "Optional link label, e.g. 'Explore Events'"}
+          - {label: "Link URL", name: "link_url", widget: "string", required: false, hint: "Path to a page (e.g. /events or /about) or external URL"}
+          - {label: "Dismissible", name: "dismissible", widget: "boolean", default: true}
+          - {label: "Style", name: "style", widget: "select", options: ["gradient", "accent", "subtle"], default: "gradient", required: false}
       - label: "Navigation"
         name: "navigation"
         file: "_data/navigation.yml"

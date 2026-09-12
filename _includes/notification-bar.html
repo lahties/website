@@ -1,0 +1,41 @@
+{% assign notif = site.data.notification %}
+{% if notif and notif.enabled and notif.message and notif.message != "" and notif.message != empty %}
+<script>
+(function() {
+    try {
+        var notifId = {{ notif.id | default: "default" | jsonify }};
+        if (localStorage.getItem('lahties_notif_dismissed_' + notifId) === 'true') {
+            document.documentElement.classList.add('notification-dismissed');
+        } else {
+            document.documentElement.classList.add('has-notification');
+        }
+    } catch(e) {}
+})();
+</script>
+<aside class="notification-bar notification-bar--{{ notif.style | default: 'gradient' }}" id="notification-bar" data-id="{{ notif.id | default: 'default' | escape }}" role="region" aria-label="Announcement">
+    <div class="container notification-container">
+        <div class="notification-content">
+            <span class="notification-message">{{ notif.message }}</span>
+            {% if notif.link_url and notif.link_url != "" %}
+                {% assign is_external = false %}
+                {% if notif.link_url contains '://' %}
+                    {% assign is_external = true %}
+                {% endif %}
+                <a href="{% if is_external %}{{ notif.link_url }}{% else %}{{ notif.link_url | relative_url }}{% endif %}"
+                   class="notification-link"
+                   {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                    <span>{{ notif.link_text | default: "Learn more &rarr;" }}</span>
+                    {% if is_external %}
+                    <span class="material-symbols-outlined notification-ext-icon" aria-hidden="true">open_in_new</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </div>
+        {% if notif.dismissible != false %}
+        <button type="button" class="notification-close" id="notification-close" aria-label="Dismiss notification">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {% endif %}
+    </div>
+</aside>
+{% endif %}

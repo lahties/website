@@ -223,5 +223,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Notification Bar Logic
+    function initNotificationBar() {
+        const notifBar = document.getElementById('notification-bar');
+        if (!notifBar) {
+            document.documentElement.style.setProperty('--notification-height', '0px');
+            return;
+        }
+
+        const notifId = notifBar.dataset.id || 'default';
+        const storageKey = 'lahties_notif_dismissed_' + notifId;
+
+        // Check if dismissed previously
+        if (localStorage.getItem(storageKey) === 'true') {
+            notifBar.style.display = 'none';
+            document.documentElement.classList.add('notification-dismissed');
+            document.documentElement.classList.remove('has-notification');
+            document.documentElement.style.setProperty('--notification-height', '0px');
+            return;
+        }
+
+        function updateHeight() {
+            if (notifBar && !notifBar.classList.contains('is-closing') && notifBar.offsetParent !== null) {
+                const height = notifBar.getBoundingClientRect().height;
+                document.documentElement.style.setProperty('--notification-height', `${height}px`);
+            }
+        }
+
+        updateHeight();
+        window.addEventListener('resize', updateHeight);
+
+        const closeBtn = document.getElementById('notification-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                notifBar.classList.add('is-closing');
+                document.documentElement.style.setProperty('--notification-height', '0px');
+                document.documentElement.classList.add('notification-dismissed');
+                document.documentElement.classList.remove('has-notification');
+
+                try {
+                    localStorage.setItem(storageKey, 'true');
+                } catch (e) {
+                    console.error(e);
+                }
+
+                setTimeout(() => {
+                    notifBar.style.display = 'none';
+                }, 350);
+            });
+        }
+    }
+
+    initNotificationBar();
     initPostShareActions();
 });
+

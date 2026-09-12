@@ -1,0 +1,9 @@
+# Notification bar configuration
+# If enabled is false or message is empty, the notification bar will not be shown at all.
+enabled: false
+id: "test"
+message: ""
+link_text: ""
+link_url: ""
+dismissible: false
+style: "gradient"
