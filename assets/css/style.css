@@ -833,3 +833,187 @@ ul {
 .projects-grid h1 {
     margin: 1rem;
 }
+
+/* ==========================================================================
+   Universal Table Styling (Markdown, Pages & Blog Posts)
+   ========================================================================== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 30px 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(17, 24, 58, 0.45);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(17, 24, 58, 0.6);
+    border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.table-wrapper table {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+table,
+.page-content table,
+.article-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(17, 24, 58, 0.45);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+table caption,
+.page-content table caption,
+.article-content table caption {
+    caption-side: bottom;
+    padding: 10px 4px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+table thead,
+.page-content table thead,
+.article-content table thead {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+table th,
+.page-content th,
+.article-content th {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.35);
+    letter-spacing: 0.01em;
+}
+
+table td,
+.page-content td,
+.article-content td {
+    padding: 14px 18px;
+    color: rgba(243, 239, 232, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    vertical-align: top;
+}
+
+table tbody tr,
+.page-content tbody tr,
+.article-content tbody tr {
+    transition: background-color var(--transition-speed) ease;
+}
+
+table tbody tr:nth-child(even),
+.page-content tbody tr:nth-child(even),
+.article-content tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+table tbody tr:hover,
+.page-content tbody tr:hover,
+.article-content tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+}
+
+table tbody tr:last-child td,
+.page-content tbody tr:last-child td,
+.article-content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Rounded corner support on individual cells when border-collapse is separate */
+table thead tr:first-child th:first-child,
+.page-content table thead tr:first-child th:first-child,
+.article-content table thead tr:first-child th:first-child {
+    border-top-left-radius: 13px;
+}
+
+table thead tr:first-child th:last-child,
+.page-content table thead tr:first-child th:last-child,
+.article-content table thead tr:first-child th:last-child {
+    border-top-right-radius: 13px;
+}
+
+table tbody tr:last-child td:first-child,
+.page-content table tbody tr:last-child td:first-child,
+.article-content table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 13px;
+}
+
+table tbody tr:last-child td:last-child,
+.page-content table tbody tr:last-child td:last-child,
+.article-content table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 13px;
+}
+
+/* Links and inline elements inside tables */
+table td a,
+.page-content table td a,
+.article-content table td a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+table td a:hover,
+.page-content table td a:hover,
+.article-content table td a:hover {
+    text-decoration: none;
+    color: var(--accent-hover);
+}
+
+table td code,
+.page-content table td code,
+.article-content table td code {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Fallback responsive behavior for tables without wrapper */
+@media (max-width: 768px) {
+    table:not(.table-wrapper table),
+    .page-content table:not(.table-wrapper table),
+    .article-content table:not(.table-wrapper table) {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table th, table td,
+    .page-content th, .page-content td,
+    .article-content th, .article-content td {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+}
+

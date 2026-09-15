@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function adjustStars() {
             const numStars = Math.floor(width * height / 3000); // Density of stars
-            
+
             if (stars.length < numStars) {
                 for (let i = stars.length; i < numStars; i++) {
                     const baseVx = Math.floor(Math.random() * 50) - 25;
@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
             const scrollY = window.scrollY;
-            
+
             stars.forEach(star => {
                 // Parallax effect based on star radius (smaller/further = slower)
                 const parallaxOffset = scrollY * (star.radius * 0.3);
                 let drawY = star.y - parallaxOffset;
-                
+
                 // Wrap visual position within canvas
                 drawY = ((drawY % height) + height) % height;
 
@@ -275,6 +275,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initNotificationBar();
-    initPostShareActions();
-});
+    // Responsive table wrappers for markdown and content tables
+    function initResponsiveTables() {
+        const tables = document.querySelectorAll('.page-content table, .article-content table');
+        tables.forEach(table => {
+            if (!table.parentElement.classList.contains('table-wrapper')) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-wrapper';
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            }
+        });
+    }
 
+    initPostShareActions();
+    initResponsiveTables();
+});
