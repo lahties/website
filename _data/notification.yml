@@ -1,6 +1,6 @@
 # Notification bar configuration
 # If enabled is false or message is empty, the notification bar will not be shown at all.
-enabled: true
+enabled: false
 id: "synergy-challenge-2026"
 message: "The Synergy 2026 challenge has been released!"
 link_text: "Check challenge details"
