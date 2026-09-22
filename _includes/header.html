@@ -1,11 +1,12 @@
 <header class="site-header">
+    <a href="#main-content" class="sr-only skip-link">Skip to main content</a>
     {% include notification-bar.html %}
     <nav class="navbar">
         <div class="container nav-container">
             <a href="{{ '/' | relative_url }}" class="logo">
                 <img src="{{ 'assets/images/small-logo.svg' | relative_url }}" alt="LahtiES Logo" class="logo-img">
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" aria-label="Main navigation">
                 {% for item in site.data.navigation.main %}
                 {% assign page_href = page.url | relative_url | append: '/' | replace: '//', '/' %}
                 {% assign item_href = item.url | relative_url | append: '/' | replace: '//', '/' %}

@@ -185,14 +185,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (copied) {
                     status.textContent = 'Copied!';
                     status.style.opacity = '1';
+                    status.style.visibility = 'visible';
                     setTimeout(() => {
                         status.style.opacity = '0';
+                        setTimeout(() => status.style.visibility = 'hidden', 200);
                     }, 1800);
                 } else {
                     status.textContent = 'Could not copy';
                     status.style.opacity = '1';
+                    status.style.visibility = 'visible';
                     setTimeout(() => {
                         status.style.opacity = '0';
+                        setTimeout(() => status.style.visibility = 'hidden', 200);
                     }, 2500);
                 }
             });

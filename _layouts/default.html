@@ -20,7 +20,9 @@
     <canvas id="stars-canvas" class="stars-canvas"></canvas>
     {% include header.html %}
     
-    {{ content }}
+    <main id="main-content">
+        {{ content }}
+    </main>
     
     {% include footer.html %}
     <script src="{{ 'assets/js/script.js' | relative_url }}"></script>
