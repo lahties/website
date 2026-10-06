@@ -18,7 +18,7 @@ The idea was to bring people together, show what entrepreneurship can actually l
 
 You didn't need to already have a startup. You didn't need to know how funding works or what half the startup vocabulary means. Curiosity was enough.
 
-![](/assets/images/dsc04345.jpg)
+![](/assets/images/dsc04213.jpg)
 
 ## DAY 01: so what does entrepreneurship actually look like?
 
@@ -63,8 +63,6 @@ At Maria 01, we stepped into one of Finland's main startup hubs and got a closer
 Different businesses, different stages and different stories behind success. That was kind of the point.
 
 There isn't one correct version of entrepreneurship. Sometimes it starts with a pitch deck. Sometimes with a problem someone is annoyed enough to solve. Sometimes with a random conversation that goes further than expected. And sometimes it starts with getting on a bus to Helsinki early in the morning.
-
-
 
 ## Why the sunrise?
 
